@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate App Icons</title>
+</head>
+<body>
+    <h2>Icon Generator</h2>
+    <p>Right-click each canvas below and "Save image as..." to create your app icons.</p>
+
+    <h3>192x192 Icon</h3>
+    <canvas id="icon192" width="192" height="192"></canvas>
+    <br><br>
+
+    <h3>512x512 Icon</h3>
+    <canvas id="icon512" width="512" height="512"></canvas>
+
+    <script>
+        function createIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#1e3c72');
+            gradient.addColorStop(1, '#2a5298');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+
+            // Draw crosshair
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = size * 0.03;
+
+            // Outer circle
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size * 0.35, 0, 2 * Math.PI);
+            ctx.stroke();
+
+            // Inner circle
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size * 0.05, 0, 2 * Math.PI);
+            ctx.stroke();
+
+            // Vertical line
+            ctx.beginPath();
+            ctx.moveTo(size/2, size * 0.15);
+            ctx.lineTo(size/2, size * 0.85);
+            ctx.stroke();
+
+            // Horizontal line
+            ctx.beginPath();
+            ctx.moveTo(size * 0.15, size/2);
+            ctx.lineTo(size * 0.85, size/2);
+            ctx.stroke();
+
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.12}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.fillText('MOA', size/2, size * 0.88);
+        }
+
+        createIcon('icon192', 192);
+        createIcon('icon512', 512);
+    </script>
+</body>
+</html>

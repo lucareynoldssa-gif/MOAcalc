@@ -9,8 +9,24 @@ A mobile-friendly web application for calculating rifle scope click adjustments 
 - **Mobile Optimized**: Touch-friendly interface designed for use in the field
 - **1/4 MOA Clicks**: Configured for standard 1/4 MOA per click rifle scopes
 - **Wind Compensation**: Optional wind speed input for basic drift estimation
-- **Offline Ready**: Works without internet connection once loaded
-- **No Installation Required**: Just open in any modern web browser
+- **Fully Offline**: Works completely offline - perfect for hunting with no cell signal
+- **Installable App**: Add to your phone's home screen like a native app (PWA)
+
+## Install on Your Phone
+
+### iPhone/iPad (iOS):
+1. Open in **Safari** browser: https://lucareynoldssa-gif.github.io/MOAcalc/
+2. Tap the Share button (square with arrow)
+3. Tap "Add to Home Screen"
+4. Done! Works offline from your home screen
+
+### Android:
+1. Open in **Chrome** browser: https://lucareynoldssa-gif.github.io/MOAcalc/
+2. Tap the menu (three dots)
+3. Tap "Install app" or "Add to Home screen"
+4. Done! Works offline from your home screen
+
+**Once installed, no internet connection is needed!** Perfect for hunting and range use.
 
 ## How to Use
 
@@ -52,6 +68,9 @@ A mobile-friendly web application for calculating rifle scope click adjustments 
 - `index.html` - Main application structure
 - `styles.css` - Responsive mobile-first styling
 - `calculator.js` - MOA calculation logic
+- `service-worker.js` - Enables offline functionality
+- `manifest.json` - PWA configuration for installation
+- `create-icons.html` - Tool to generate app icons (see INSTALL.md)
 
 ## Browser Compatibility
 
