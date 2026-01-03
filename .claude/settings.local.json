@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: MOA Scope Click Calculator\n\n- Mobile-friendly web application for calculating rifle scope adjustments\n- Metric system \\(meters, centimeters, km/h\\)\n- Real-time MOA and click calculations\n- Optional wind speed compensation\n- Responsive design optimized for mobile devices\n- Works offline once loaded\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git config:*)",
+      "Bash(gh repo create:*)",
+      "Bash(echo:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
