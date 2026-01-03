@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>MOA Scope Click Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MOA Click Calculator</h1>
+            <p class="subtitle">Calculate scope adjustments for your next shot</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="distance">Distance to Target (meters)</label>
+                    <input type="number" id="distance" placeholder="100" step="1" min="1" inputmode="numeric">
+                </div>
+
+                <div class="input-group">
+                    <label for="verticalOffset">Vertical Offset (cm)</label>
+                    <p class="hint">Positive = high, Negative = low</p>
+                    <input type="number" id="verticalOffset" placeholder="0" step="0.1" inputmode="decimal">
+                </div>
+
+                <div class="input-group">
+                    <label for="horizontalOffset">Horizontal Offset (cm)</label>
+                    <p class="hint">Positive = right, Negative = left</p>
+                    <input type="number" id="horizontalOffset" placeholder="0" step="0.1" inputmode="decimal">
+                </div>
+
+                <div class="input-group optional">
+                    <label for="windSpeed">Wind Speed (km/h) <span class="optional-tag">Optional</span></label>
+                    <input type="number" id="windSpeed" placeholder="0" step="1" min="0" inputmode="numeric">
+                </div>
+            </div>
+
+            <div class="results-section">
+                <h2>Scope Adjustments</h2>
+
+                <div class="result-card" id="verticalResult">
+                    <div class="result-icon">↕</div>
+                    <div class="result-content">
+                        <div class="result-label">Vertical</div>
+                        <div class="result-value" id="verticalClicks">-- clicks</div>
+                        <div class="result-direction" id="verticalDirection"></div>
+                    </div>
+                </div>
+
+                <div class="result-card" id="horizontalResult">
+                    <div class="result-icon">↔</div>
+                    <div class="result-content">
+                        <div class="result-label">Horizontal</div>
+                        <div class="result-value" id="horizontalClicks">-- clicks</div>
+                        <div class="result-direction" id="horizontalDirection"></div>
+                    </div>
+                </div>
+
+                <div class="moa-info" id="moaInfo">
+                    <p><strong>Total Adjustment:</strong></p>
+                    <p id="moaValues">Enter values to calculate</p>
+                </div>
+
+                <div class="wind-note" id="windNote" style="display: none;">
+                    <p><strong>Note:</strong> Wind compensation is approximate. Actual drift depends on bullet weight, velocity, and ballistic coefficient.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p class="info">1 click = 1/4 MOA | 1 MOA ≈ 2.908 cm at 100m</p>
+        </footer>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
