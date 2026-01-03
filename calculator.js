@@ -11,6 +11,9 @@ const verticalOffsetInput = document.getElementById('verticalOffset');
 const horizontalOffsetInput = document.getElementById('horizontalOffset');
 const windSpeedInput = document.getElementById('windSpeed');
 
+const verticalToggle = document.getElementById('verticalToggle');
+const horizontalToggle = document.getElementById('horizontalToggle');
+
 const verticalClicksEl = document.getElementById('verticalClicks');
 const verticalDirectionEl = document.getElementById('verticalDirection');
 const verticalResultCard = document.getElementById('verticalResult');
@@ -21,6 +24,37 @@ const horizontalResultCard = document.getElementById('horizontalResult');
 
 const moaValuesEl = document.getElementById('moaValues');
 const windNoteEl = document.getElementById('windNote');
+
+// Toggle button handlers
+verticalToggle.addEventListener('click', () => {
+    const currentSign = parseInt(verticalToggle.dataset.sign);
+    const newSign = currentSign * -1;
+    verticalToggle.dataset.sign = newSign;
+
+    if (newSign === 1) {
+        verticalToggle.textContent = 'HIGH +';
+        verticalToggle.classList.remove('negative');
+    } else {
+        verticalToggle.textContent = 'LOW -';
+        verticalToggle.classList.add('negative');
+    }
+    updateCalculations();
+});
+
+horizontalToggle.addEventListener('click', () => {
+    const currentSign = parseInt(horizontalToggle.dataset.sign);
+    const newSign = currentSign * -1;
+    horizontalToggle.dataset.sign = newSign;
+
+    if (newSign === 1) {
+        horizontalToggle.textContent = 'RIGHT +';
+        horizontalToggle.classList.remove('negative');
+    } else {
+        horizontalToggle.textContent = 'LEFT -';
+        horizontalToggle.classList.add('negative');
+    }
+    updateCalculations();
+});
 
 // Calculate MOA from offset and distance
 function calculateMOA(offsetCm, distanceMeters) {
@@ -53,9 +87,16 @@ function getDirection(value, axis) {
 // Update calculations
 function updateCalculations() {
     const distance = parseFloat(distanceInput.value) || 0;
-    const verticalOffset = parseFloat(verticalOffsetInput.value) || 0;
-    const horizontalOffset = parseFloat(horizontalOffsetInput.value) || 0;
+    const verticalValue = parseFloat(verticalOffsetInput.value) || 0;
+    const horizontalValue = parseFloat(horizontalOffsetInput.value) || 0;
     const windSpeed = parseFloat(windSpeedInput.value) || 0;
+
+    // Apply sign from toggle buttons
+    const verticalSign = parseInt(verticalToggle.dataset.sign);
+    const horizontalSign = parseInt(horizontalToggle.dataset.sign);
+
+    const verticalOffset = verticalValue * verticalSign;
+    const horizontalOffset = horizontalValue * horizontalSign;
 
     // Show/hide wind note
     if (windSpeed > 0) {

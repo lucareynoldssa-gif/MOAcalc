@@ -35,14 +35,20 @@
 
                 <div class="input-group">
                     <label for="verticalOffset">Vertical Offset (cm)</label>
-                    <p class="hint">Positive = high, Negative = low</p>
-                    <input type="number" id="verticalOffset" placeholder="0" step="0.1" inputmode="decimal">
+                    <div class="input-with-toggle">
+                        <button type="button" class="toggle-btn" id="verticalToggle" data-sign="1">HIGH +</button>
+                        <input type="number" id="verticalOffset" placeholder="0" step="0.1" min="0" inputmode="decimal">
+                    </div>
+                    <p class="hint">Tap button to switch HIGH/LOW</p>
                 </div>
 
                 <div class="input-group">
                     <label for="horizontalOffset">Horizontal Offset (cm)</label>
-                    <p class="hint">Positive = right, Negative = left</p>
-                    <input type="number" id="horizontalOffset" placeholder="0" step="0.1" inputmode="decimal">
+                    <div class="input-with-toggle">
+                        <button type="button" class="toggle-btn" id="horizontalToggle" data-sign="1">RIGHT +</button>
+                        <input type="number" id="horizontalOffset" placeholder="0" step="0.1" min="0" inputmode="decimal">
+                    </div>
+                    <p class="hint">Tap button to switch RIGHT/LEFT</p>
                 </div>
 
                 <div class="input-group optional">

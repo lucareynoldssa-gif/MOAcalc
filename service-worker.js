@@ -1,5 +1,5 @@
 // Service Worker for offline functionality
-const CACHE_NAME = 'moa-calculator-v1';
+const CACHE_NAME = 'moa-calculator-v2';
 const urlsToCache = [
   './',
   './index.html',

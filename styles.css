@@ -9,7 +9,10 @@ body {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     min-height: 100vh;
     padding: 20px;
+    padding-bottom: 40px;
     color: #333;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container {
@@ -75,8 +78,39 @@ label {
 .hint {
     font-size: 14px;
     color: #7f8c8d;
-    margin-bottom: 8px;
+    margin-top: 8px;
+    margin-bottom: 0;
     font-style: italic;
+}
+
+.input-with-toggle {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.toggle-btn {
+    flex-shrink: 0;
+    width: 100px;
+    padding: 16px 12px;
+    font-size: 14px;
+    font-weight: 700;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.toggle-btn.negative {
+    background: #e74c3c;
+}
+
+.toggle-btn:active {
+    transform: scale(0.95);
 }
 
 input[type="number"] {
@@ -88,6 +122,10 @@ input[type="number"] {
     transition: all 0.3s ease;
     -webkit-appearance: none;
     appearance: none;
+}
+
+.input-with-toggle input[type="number"] {
+    flex: 1;
 }
 
 input[type="number"]:focus {
